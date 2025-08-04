@@ -1,0 +1,71 @@
+# Trust in git to do the right thing.
+* text=auto
+
+# Soon to be obsolete.
+
+# Code files.
+*.[hc] text
+*.[hc]pp text
+*.[hc]xx text
+*.inl text
+*.xbm text
+*.inc text
+*.ipp text
+*.S text
+*.ldi text
+*.tcl text
+
+# Documentation files.
+*.dox text
+*.md text
+*.txt text
+README text
+COPYING text
+CHANGELOG text
+FILES text
+UPGRADING text
+*.html text
+*.css text
+*.pdf binary
+
+# Configuration files.
+*.xml text
+.git* text
+*.flashmap text
+*.cof text
+*.xdd text
+*.gtf text
+
+
+# Graphics.
+*.dot text
+*.gif binary
+*.jpg binary
+*.png binary
+
+# Windows specific files.
+*.bat text eol=crlf
+
+# Visual Studio files.
+*.vcproj text
+*.sln text
+*.suo binary
+*.cs text
+*.csproj text
+
+
+# Unix files.
+Makefile text eol=lf
+Make.* text eol=lf
+*.mak text eol=lf
+*.sh text eol=lf
+*.conf text eol=lf
+*.cmake text eol=lf
+*.mk text eol=lf
+
+# Misc scripts.
+makefsdata text
+
+# Binaries.
+*.bin binary
+*.xlsm binary
