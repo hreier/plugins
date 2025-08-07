@@ -1,42 +1,70 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing.Text;
-using MissionPlanner.Utilities;
-using MissionPlanner.Controls;
-using System.IO;
-using System.Windows.Forms;
-using System.Diagnostics;
+﻿using GMap.NET.WindowsForms;
 using MissionPlanner;
-using System.Drawing;
-using GMap.NET.WindowsForms;
+using MissionPlanner.Controls;
 using MissionPlanner.GCSViews;
 using MissionPlanner.Maps;
-using System.Timers;
-
-using System.Net;
-using System.Net.Sockets;
-using System.Threading;
-using System.Threading.Tasks;
-
+using MissionPlanner.Plugin;
+using MissionPlanner.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Threading.Tasks;
+using System.Timers;
+using System.Windows.Forms;
 
 
 namespace SoleonCtrl_Plugin
 {
     internal class SoleonCtrl_Plugin : MissionPlanner.Plugin.Plugin
     {
+        
+        //TabPage
+        private System.Windows.Forms.TabPage tab = new System.Windows.Forms.TabPage();
+        private TabControl tabctrl;
+        private SoleonCtrl_UI mySoCtrl_UI = new SoleonCtrl_UI();
+
+
         public override string Name { get; } = "SoleonCtrl Plugin";
         public override string Version { get; } = "0.0.0";
         public override string Author { get; } = "soleon.it";
-        public override bool Init() { return true; }
+        public override bool Init() 
+        {
+            mySoCtrl_UI.setHost(Host);
+            mySoCtrl_UI.setVer("SoleonCtrl V" + Version);
+
+            return true; 
+        }
         public override bool Loaded()
         {
+            Host.MainForm.FlightData.TabListOriginal.Add(tab);
+
+        //    Console.WriteLine("------- Soleon Plugin started up ---------");
+            tabctrl = Host.MainForm.FlightData.tabControlactions;
+            // set the display name
+            tab.Text = "Soleon Control";
+            // set the internal id
+            tab.Name = "tabSoleonCtrl";
+            // add the usercontrol to the tabpage
+            tab.Controls.Add(mySoCtrl_UI);
+
+            tabctrl.TabPages.Insert(5, tab);
+
+            //Host.MainForm.FlightPlanner.updateDisplayView();
+
+            ThemeManager.ApplyThemeTo(tab);
+
             return true;
         }
         public override bool Exit() { return true; }
