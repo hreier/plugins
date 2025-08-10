@@ -30,13 +30,9 @@
         {
             this.SoleonCtrl = new System.Windows.Forms.GroupBox();
             this.flow = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.speed = new System.Windows.Forms.TextBox();
-            this.line_dist = new System.Windows.Forms.TextBox();
             this.fill = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.Control = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.ledBackR_2 = new Bulb.LedBulb();
@@ -70,6 +66,12 @@
             this.ledSprL = new Bulb.LedBulb();
             this.ledSprR = new Bulb.LedBulb();
             this.StatusNumbers = new System.Windows.Forms.GroupBox();
+            this.liter_ha = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.line_dist = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.speed = new System.Windows.Forms.TextBox();
             this.SoleonCtrl.SuspendLayout();
             this.Control.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -77,25 +79,22 @@
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.StatusBits.SuspendLayout();
+            this.StatusNumbers.SuspendLayout();
             this.SuspendLayout();
             // 
             // SoleonCtrl
             // 
             this.SoleonCtrl.Controls.Add(this.flow);
-            this.SoleonCtrl.Controls.Add(this.label3);
-            this.SoleonCtrl.Controls.Add(this.speed);
-            this.SoleonCtrl.Controls.Add(this.line_dist);
             this.SoleonCtrl.Controls.Add(this.fill);
             this.SoleonCtrl.Controls.Add(this.label1);
             this.SoleonCtrl.Controls.Add(this.label13);
-            this.SoleonCtrl.Controls.Add(this.label2);
             this.SoleonCtrl.Controls.Add(this.Control);
             this.SoleonCtrl.Controls.Add(this.StatusBits);
             this.SoleonCtrl.Controls.Add(this.StatusNumbers);
             this.SoleonCtrl.Location = new System.Drawing.Point(3, 3);
             this.SoleonCtrl.Name = "SoleonCtrl";
             this.SoleonCtrl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SoleonCtrl.Size = new System.Drawing.Size(399, 411);
+            this.SoleonCtrl.Size = new System.Drawing.Size(399, 478);
             this.SoleonCtrl.TabIndex = 0;
             this.SoleonCtrl.TabStop = false;
             this.SoleonCtrl.Text = "SoleonCtrl";
@@ -110,38 +109,6 @@
             this.flow.Size = new System.Drawing.Size(139, 23);
             this.flow.TabIndex = 40;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(119, 360);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(51, 17);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "speed:";
-            // 
-            // speed
-            // 
-            this.speed.BackColor = System.Drawing.SystemColors.Control;
-            this.speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.speed.Location = new System.Drawing.Point(192, 354);
-            this.speed.Margin = new System.Windows.Forms.Padding(4);
-            this.speed.Name = "speed";
-            this.speed.Size = new System.Drawing.Size(139, 23);
-            this.speed.TabIndex = 38;
-            // 
-            // line_dist
-            // 
-            this.line_dist.BackColor = System.Drawing.SystemColors.Control;
-            this.line_dist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.line_dist.Location = new System.Drawing.Point(192, 323);
-            this.line_dist.Margin = new System.Windows.Forms.Padding(4);
-            this.line_dist.Name = "line_dist";
-            this.line_dist.Size = new System.Drawing.Size(139, 23);
-            this.line_dist.TabIndex = 39;
-            // 
             // fill
             // 
             this.fill.BackColor = System.Drawing.SystemColors.Control;
@@ -149,6 +116,7 @@
             this.fill.Location = new System.Drawing.Point(192, 292);
             this.fill.Margin = new System.Windows.Forms.Padding(4);
             this.fill.Name = "fill";
+            this.fill.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.fill.Size = new System.Drawing.Size(139, 23);
             this.fill.TabIndex = 11;
             // 
@@ -175,18 +143,6 @@
             this.label13.Size = new System.Drawing.Size(67, 17);
             this.label13.TabIndex = 34;
             this.label13.Text = "fill Level: ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(68, 329);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(102, 17);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "distance lines: ";
             // 
             // Control
             // 
@@ -326,6 +282,7 @@
             // 
             // ledFrontR_2
             // 
+            this.ledFrontR_2.Color = System.Drawing.Color.White;
             this.ledFrontR_2.Location = new System.Drawing.Point(40, 47);
             this.ledFrontR_2.Name = "ledFrontR_2";
             this.ledFrontR_2.On = true;
@@ -346,6 +303,7 @@
             // 
             // ledFrontR_1
             // 
+            this.ledFrontR_1.Color = System.Drawing.Color.White;
             this.ledFrontR_1.Location = new System.Drawing.Point(8, 47);
             this.ledFrontR_1.Name = "ledFrontR_1";
             this.ledFrontR_1.On = true;
@@ -379,6 +337,7 @@
             // 
             // ledFrontL_1
             // 
+            this.ledFrontL_1.Color = System.Drawing.Color.White;
             this.ledFrontL_1.Location = new System.Drawing.Point(40, 47);
             this.ledFrontL_1.Name = "ledFrontL_1";
             this.ledFrontL_1.On = true;
@@ -399,6 +358,7 @@
             // 
             // ledFrontL_2
             // 
+            this.ledFrontL_2.Color = System.Drawing.Color.White;
             this.ledFrontL_2.Location = new System.Drawing.Point(8, 47);
             this.ledFrontL_2.Name = "ledFrontL_2";
             this.ledFrontL_2.On = true;
@@ -459,6 +419,7 @@
             // 
             // ledSprReady
             // 
+            this.ledSprReady.Color = System.Drawing.Color.White;
             this.ledSprReady.Location = new System.Drawing.Point(10, 97);
             this.ledSprReady.Name = "ledSprReady";
             this.ledSprReady.On = true;
@@ -528,6 +489,7 @@
             // 
             // ledSprL
             // 
+            this.ledSprL.Color = System.Drawing.Color.White;
             this.ledSprL.Location = new System.Drawing.Point(10, 61);
             this.ledSprL.Name = "ledSprL";
             this.ledSprL.On = true;
@@ -537,6 +499,7 @@
             // 
             // ledSprR
             // 
+            this.ledSprR.Color = System.Drawing.Color.White;
             this.ledSprR.ImeMode = System.Windows.Forms.ImeMode.On;
             this.ledSprR.Location = new System.Drawing.Point(10, 28);
             this.ledSprR.Name = "ledSprR";
@@ -547,11 +510,83 @@
             // 
             // StatusNumbers
             // 
+            this.StatusNumbers.Controls.Add(this.liter_ha);
+            this.StatusNumbers.Controls.Add(this.label6);
+            this.StatusNumbers.Controls.Add(this.line_dist);
+            this.StatusNumbers.Controls.Add(this.label3);
+            this.StatusNumbers.Controls.Add(this.label2);
+            this.StatusNumbers.Controls.Add(this.speed);
             this.StatusNumbers.Location = new System.Drawing.Point(16, 246);
             this.StatusNumbers.Name = "StatusNumbers";
-            this.StatusNumbers.Size = new System.Drawing.Size(368, 150);
+            this.StatusNumbers.Size = new System.Drawing.Size(368, 173);
             this.StatusNumbers.TabIndex = 1;
             this.StatusNumbers.TabStop = false;
+            // 
+            // liter_ha
+            // 
+            this.liter_ha.BackColor = System.Drawing.SystemColors.Control;
+            this.liter_ha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.liter_ha.Location = new System.Drawing.Point(176, 106);
+            this.liter_ha.Margin = new System.Windows.Forms.Padding(4);
+            this.liter_ha.Name = "liter_ha";
+            this.liter_ha.Size = new System.Drawing.Size(139, 23);
+            this.liter_ha.TabIndex = 41;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(64, 112);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label6.Size = new System.Drawing.Size(90, 17);
+            this.label6.TabIndex = 40;
+            this.label6.Text = " mp_liter_ha:";
+            // 
+            // line_dist
+            // 
+            this.line_dist.BackColor = System.Drawing.SystemColors.Control;
+            this.line_dist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.line_dist.Location = new System.Drawing.Point(176, 139);
+            this.line_dist.Margin = new System.Windows.Forms.Padding(4);
+            this.line_dist.Name = "line_dist";
+            this.line_dist.Size = new System.Drawing.Size(139, 23);
+            this.line_dist.TabIndex = 39;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(103, 83);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(51, 17);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "speed:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(52, 145);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label2.Size = new System.Drawing.Size(102, 17);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "distance lines: ";
+            // 
+            // speed
+            // 
+            this.speed.BackColor = System.Drawing.SystemColors.Control;
+            this.speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speed.Location = new System.Drawing.Point(176, 77);
+            this.speed.Margin = new System.Windows.Forms.Padding(4);
+            this.speed.Name = "speed";
+            this.speed.Size = new System.Drawing.Size(139, 23);
+            this.speed.TabIndex = 38;
             // 
             // SoleonCtrl_UI
             // 
@@ -560,7 +595,7 @@
             this.Controls.Add(this.SoleonCtrl);
             this.Name = "SoleonCtrl_UI";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(408, 423);
+            this.Size = new System.Drawing.Size(408, 501);
             this.SoleonCtrl.ResumeLayout(false);
             this.SoleonCtrl.PerformLayout();
             this.Control.ResumeLayout(false);
@@ -570,6 +605,8 @@
             this.groupBox2.ResumeLayout(false);
             this.StatusBits.ResumeLayout(false);
             this.StatusBits.PerformLayout();
+            this.StatusNumbers.ResumeLayout(false);
+            this.StatusNumbers.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -618,5 +655,7 @@
         private MissionPlanner.Controls.MyButton butBackL_Off;
         private Bulb.LedBulb ledBackL_2;
         private MissionPlanner.Controls.MyButton butBackL_On;
+        private System.Windows.Forms.TextBox liter_ha;
+        private System.Windows.Forms.Label label6;
     }
 }
