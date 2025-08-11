@@ -36,35 +36,23 @@
             this.Control = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.ledBackR_2 = new Bulb.LedBulb();
-            this.butBackR_Off = new MissionPlanner.Controls.MyButton();
             this.ledBackR_1 = new Bulb.LedBulb();
-            this.butBackR_On = new MissionPlanner.Controls.MyButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ledBackL_1 = new Bulb.LedBulb();
-            this.butBackL_Off = new MissionPlanner.Controls.MyButton();
             this.ledBackL_2 = new Bulb.LedBulb();
-            this.butBackL_On = new MissionPlanner.Controls.MyButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ledFrontR_2 = new Bulb.LedBulb();
-            this.butFrontR_Off = new MissionPlanner.Controls.MyButton();
             this.ledFrontR_1 = new Bulb.LedBulb();
-            this.butFrontR_On = new MissionPlanner.Controls.MyButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ledFrontL_1 = new Bulb.LedBulb();
-            this.butFrontL_Off = new MissionPlanner.Controls.MyButton();
             this.ledFrontL_2 = new Bulb.LedBulb();
-            this.butFrontL_On = new MissionPlanner.Controls.MyButton();
             this.StatusBits = new System.Windows.Forms.GroupBox();
             this.ledNozzleErr = new Bulb.LedBulb();
             this.ledPumpErr = new Bulb.LedBulb();
             this.ledSprReady = new Bulb.LedBulb();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ledSprL = new Bulb.LedBulb();
-            this.ledSprR = new Bulb.LedBulb();
             this.StatusNumbers = new System.Windows.Forms.GroupBox();
             this.liter_ha = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -72,6 +60,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.speed = new System.Windows.Forms.TextBox();
+            this.payloadConnLabel = new System.Windows.Forms.Label();
+            this.butBackR_Off = new MissionPlanner.Controls.MyButton();
+            this.butBackR_On = new MissionPlanner.Controls.MyButton();
+            this.butBackL_Off = new MissionPlanner.Controls.MyButton();
+            this.butBackL_On = new MissionPlanner.Controls.MyButton();
+            this.butFrontR_Off = new MissionPlanner.Controls.MyButton();
+            this.butFrontR_On = new MissionPlanner.Controls.MyButton();
+            this.butFrontL_Off = new MissionPlanner.Controls.MyButton();
+            this.butFrontL_On = new MissionPlanner.Controls.MyButton();
+            this.payLoadSwLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SoleonCtrl.SuspendLayout();
             this.Control.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -80,10 +79,13 @@
             this.groupBox2.SuspendLayout();
             this.StatusBits.SuspendLayout();
             this.StatusNumbers.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SoleonCtrl
             // 
+            this.SoleonCtrl.Controls.Add(this.groupBox1);
+            this.SoleonCtrl.Controls.Add(this.payLoadSwLabel);
             this.SoleonCtrl.Controls.Add(this.flow);
             this.SoleonCtrl.Controls.Add(this.fill);
             this.SoleonCtrl.Controls.Add(this.label1);
@@ -94,7 +96,7 @@
             this.SoleonCtrl.Location = new System.Drawing.Point(3, 3);
             this.SoleonCtrl.Name = "SoleonCtrl";
             this.SoleonCtrl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SoleonCtrl.Size = new System.Drawing.Size(399, 478);
+            this.SoleonCtrl.Size = new System.Drawing.Size(399, 466);
             this.SoleonCtrl.TabIndex = 0;
             this.SoleonCtrl.TabStop = false;
             this.SoleonCtrl.Text = "SoleonCtrl";
@@ -106,6 +108,7 @@
             this.flow.Location = new System.Drawing.Point(192, 261);
             this.flow.Margin = new System.Windows.Forms.Padding(4);
             this.flow.Name = "flow";
+            this.flow.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.flow.Size = new System.Drawing.Size(139, 23);
             this.flow.TabIndex = 40;
             // 
@@ -180,17 +183,6 @@
             this.ledBackR_2.TabIndex = 48;
             this.ledBackR_2.Text = "ledBulb12";
             // 
-            // butBackR_Off
-            // 
-            this.butBackR_Off.Location = new System.Drawing.Point(8, 71);
-            this.butBackR_Off.Name = "butBackR_Off";
-            this.butBackR_Off.Size = new System.Drawing.Size(50, 22);
-            this.butBackR_Off.TabIndex = 1;
-            this.butBackR_Off.Text = "Off";
-            this.butBackR_Off.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.butBackR_Off.UseVisualStyleBackColor = true;
-            this.butBackR_Off.Click += new System.EventHandler(this.butBackR_Off_Click);
-            // 
             // ledBackR_1
             // 
             this.ledBackR_1.Color = System.Drawing.Color.White;
@@ -200,17 +192,6 @@
             this.ledBackR_1.Size = new System.Drawing.Size(18, 18);
             this.ledBackR_1.TabIndex = 47;
             this.ledBackR_1.Text = "ledBulb13";
-            // 
-            // butBackR_On
-            // 
-            this.butBackR_On.Location = new System.Drawing.Point(8, 19);
-            this.butBackR_On.Name = "butBackR_On";
-            this.butBackR_On.Size = new System.Drawing.Size(50, 22);
-            this.butBackR_On.TabIndex = 0;
-            this.butBackR_On.Text = "On";
-            this.butBackR_On.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.butBackR_On.UseVisualStyleBackColor = true;
-            this.butBackR_On.Click += new System.EventHandler(this.butBackR_On_Click);
             // 
             // groupBox5
             // 
@@ -235,17 +216,6 @@
             this.ledBackL_1.TabIndex = 48;
             this.ledBackL_1.Text = "ledBulb10";
             // 
-            // butBackL_Off
-            // 
-            this.butBackL_Off.Location = new System.Drawing.Point(8, 71);
-            this.butBackL_Off.Name = "butBackL_Off";
-            this.butBackL_Off.Size = new System.Drawing.Size(50, 22);
-            this.butBackL_Off.TabIndex = 1;
-            this.butBackL_Off.Text = "Off";
-            this.butBackL_Off.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.butBackL_Off.UseVisualStyleBackColor = true;
-            this.butBackL_Off.Click += new System.EventHandler(this.butBackL_Off_Click);
-            // 
             // ledBackL_2
             // 
             this.ledBackL_2.Color = System.Drawing.Color.White;
@@ -255,17 +225,6 @@
             this.ledBackL_2.Size = new System.Drawing.Size(18, 18);
             this.ledBackL_2.TabIndex = 47;
             this.ledBackL_2.Text = "ledBulb11";
-            // 
-            // butBackL_On
-            // 
-            this.butBackL_On.Location = new System.Drawing.Point(8, 19);
-            this.butBackL_On.Name = "butBackL_On";
-            this.butBackL_On.Size = new System.Drawing.Size(50, 22);
-            this.butBackL_On.TabIndex = 0;
-            this.butBackL_On.Text = "On";
-            this.butBackL_On.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.butBackL_On.UseVisualStyleBackColor = true;
-            this.butBackL_On.Click += new System.EventHandler(this.butBackL_On_Click);
             // 
             // groupBox4
             // 
@@ -290,17 +249,6 @@
             this.ledFrontR_2.TabIndex = 48;
             this.ledFrontR_2.Text = "ledBulb6";
             // 
-            // butFrontR_Off
-            // 
-            this.butFrontR_Off.Location = new System.Drawing.Point(8, 71);
-            this.butFrontR_Off.Name = "butFrontR_Off";
-            this.butFrontR_Off.Size = new System.Drawing.Size(50, 22);
-            this.butFrontR_Off.TabIndex = 1;
-            this.butFrontR_Off.Text = "Off";
-            this.butFrontR_Off.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.butFrontR_Off.UseVisualStyleBackColor = true;
-            this.butFrontR_Off.Click += new System.EventHandler(this.butFrontR_Off_Click);
-            // 
             // ledFrontR_1
             // 
             this.ledFrontR_1.Color = System.Drawing.Color.White;
@@ -310,17 +258,6 @@
             this.ledFrontR_1.Size = new System.Drawing.Size(18, 18);
             this.ledFrontR_1.TabIndex = 47;
             this.ledFrontR_1.Text = "ledBulb7";
-            // 
-            // butFrontR_On
-            // 
-            this.butFrontR_On.Location = new System.Drawing.Point(8, 19);
-            this.butFrontR_On.Name = "butFrontR_On";
-            this.butFrontR_On.Size = new System.Drawing.Size(50, 22);
-            this.butFrontR_On.TabIndex = 0;
-            this.butFrontR_On.Text = "On";
-            this.butFrontR_On.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.butFrontR_On.UseVisualStyleBackColor = true;
-            this.butFrontR_On.Click += new System.EventHandler(this.butFrontR_On_Click);
             // 
             // groupBox2
             // 
@@ -345,17 +282,6 @@
             this.ledFrontL_1.TabIndex = 48;
             this.ledFrontL_1.Text = "ledBulb9";
             // 
-            // butFrontL_Off
-            // 
-            this.butFrontL_Off.Location = new System.Drawing.Point(8, 71);
-            this.butFrontL_Off.Name = "butFrontL_Off";
-            this.butFrontL_Off.Size = new System.Drawing.Size(50, 22);
-            this.butFrontL_Off.TabIndex = 1;
-            this.butFrontL_Off.Text = "Off";
-            this.butFrontL_Off.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.butFrontL_Off.UseVisualStyleBackColor = true;
-            this.butFrontL_Off.Click += new System.EventHandler(this.butFrontL_Off_Click);
-            // 
             // ledFrontL_2
             // 
             this.ledFrontL_2.Color = System.Drawing.Color.White;
@@ -366,33 +292,18 @@
             this.ledFrontL_2.TabIndex = 47;
             this.ledFrontL_2.Text = "ledBulb8";
             // 
-            // butFrontL_On
-            // 
-            this.butFrontL_On.Location = new System.Drawing.Point(8, 19);
-            this.butFrontL_On.Name = "butFrontL_On";
-            this.butFrontL_On.Size = new System.Drawing.Size(50, 22);
-            this.butFrontL_On.TabIndex = 0;
-            this.butFrontL_On.Text = "On";
-            this.butFrontL_On.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.butFrontL_On.UseVisualStyleBackColor = true;
-            this.butFrontL_On.Click += new System.EventHandler(this.butFrontL_On_Click);
-            // 
             // StatusBits
             // 
             this.StatusBits.Controls.Add(this.ledNozzleErr);
             this.StatusBits.Controls.Add(this.ledPumpErr);
             this.StatusBits.Controls.Add(this.ledSprReady);
-            this.StatusBits.Controls.Add(this.label9);
             this.StatusBits.Controls.Add(this.label8);
             this.StatusBits.Controls.Add(this.label7);
             this.StatusBits.Controls.Add(this.label5);
-            this.StatusBits.Controls.Add(this.label4);
-            this.StatusBits.Controls.Add(this.ledSprL);
-            this.StatusBits.Controls.Add(this.ledSprR);
-            this.StatusBits.Location = new System.Drawing.Point(225, 37);
+            this.StatusBits.Location = new System.Drawing.Point(225, 97);
             this.StatusBits.Name = "StatusBits";
             this.StatusBits.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.StatusBits.Size = new System.Drawing.Size(159, 206);
+            this.StatusBits.Size = new System.Drawing.Size(159, 146);
             this.StatusBits.TabIndex = 3;
             this.StatusBits.TabStop = false;
             this.StatusBits.Text = "Status";
@@ -400,7 +311,7 @@
             // ledNozzleErr
             // 
             this.ledNozzleErr.Color = System.Drawing.Color.White;
-            this.ledNozzleErr.Location = new System.Drawing.Point(10, 167);
+            this.ledNozzleErr.Location = new System.Drawing.Point(6, 100);
             this.ledNozzleErr.Name = "ledNozzleErr";
             this.ledNozzleErr.On = true;
             this.ledNozzleErr.Size = new System.Drawing.Size(18, 18);
@@ -410,7 +321,7 @@
             // ledPumpErr
             // 
             this.ledPumpErr.Color = System.Drawing.Color.White;
-            this.ledPumpErr.Location = new System.Drawing.Point(10, 131);
+            this.ledPumpErr.Location = new System.Drawing.Point(6, 64);
             this.ledPumpErr.Name = "ledPumpErr";
             this.ledPumpErr.On = true;
             this.ledPumpErr.Size = new System.Drawing.Size(18, 18);
@@ -420,30 +331,18 @@
             // ledSprReady
             // 
             this.ledSprReady.Color = System.Drawing.Color.White;
-            this.ledSprReady.Location = new System.Drawing.Point(10, 97);
+            this.ledSprReady.Location = new System.Drawing.Point(6, 30);
             this.ledSprReady.Name = "ledSprReady";
             this.ledSprReady.On = true;
             this.ledSprReady.Size = new System.Drawing.Size(18, 18);
             this.ledSprReady.TabIndex = 42;
             this.ledSprReady.Text = "ledBulb3";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(35, 61);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label9.Size = new System.Drawing.Size(92, 17);
-            this.label9.TabIndex = 41;
-            this.label9.Text = "Spraying Left";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(35, 97);
+            this.label8.Location = new System.Drawing.Point(31, 30);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -455,7 +354,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(35, 131);
+            this.label7.Location = new System.Drawing.Point(31, 64);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -467,46 +366,13 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(35, 167);
+            this.label5.Location = new System.Drawing.Point(31, 100);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label5.Size = new System.Drawing.Size(94, 17);
             this.label5.TabIndex = 37;
             this.label5.Text = "Nozzles Error";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(35, 28);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(101, 17);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Spraying Right";
-            // 
-            // ledSprL
-            // 
-            this.ledSprL.Color = System.Drawing.Color.White;
-            this.ledSprL.Location = new System.Drawing.Point(10, 61);
-            this.ledSprL.Name = "ledSprL";
-            this.ledSprL.On = true;
-            this.ledSprL.Size = new System.Drawing.Size(18, 18);
-            this.ledSprL.TabIndex = 1;
-            this.ledSprL.Text = "ledBulb2";
-            // 
-            // ledSprR
-            // 
-            this.ledSprR.Color = System.Drawing.Color.White;
-            this.ledSprR.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.ledSprR.Location = new System.Drawing.Point(10, 28);
-            this.ledSprR.Name = "ledSprR";
-            this.ledSprR.On = true;
-            this.ledSprR.Size = new System.Drawing.Size(18, 18);
-            this.ledSprR.TabIndex = 0;
-            this.ledSprR.Text = "ledBulb1";
             // 
             // StatusNumbers
             // 
@@ -529,6 +395,7 @@
             this.liter_ha.Location = new System.Drawing.Point(176, 106);
             this.liter_ha.Margin = new System.Windows.Forms.Padding(4);
             this.liter_ha.Name = "liter_ha";
+            this.liter_ha.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.liter_ha.Size = new System.Drawing.Size(139, 23);
             this.liter_ha.TabIndex = 41;
             // 
@@ -551,6 +418,7 @@
             this.line_dist.Location = new System.Drawing.Point(176, 139);
             this.line_dist.Margin = new System.Windows.Forms.Padding(4);
             this.line_dist.Name = "line_dist";
+            this.line_dist.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.line_dist.Size = new System.Drawing.Size(139, 23);
             this.line_dist.TabIndex = 39;
             // 
@@ -585,8 +453,130 @@
             this.speed.Location = new System.Drawing.Point(176, 77);
             this.speed.Margin = new System.Windows.Forms.Padding(4);
             this.speed.Name = "speed";
+            this.speed.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.speed.Size = new System.Drawing.Size(139, 23);
             this.speed.TabIndex = 38;
+            // 
+            // payloadConnLabel
+            // 
+            this.payloadConnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payloadConnLabel.Location = new System.Drawing.Point(7, 22);
+            this.payloadConnLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.payloadConnLabel.Name = "payloadConnLabel";
+            this.payloadConnLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.payloadConnLabel.Size = new System.Drawing.Size(133, 20);
+            this.payloadConnLabel.TabIndex = 42;
+            this.payloadConnLabel.Text = "disconnected";
+            this.payloadConnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // butBackR_Off
+            // 
+            this.butBackR_Off.Location = new System.Drawing.Point(8, 71);
+            this.butBackR_Off.Name = "butBackR_Off";
+            this.butBackR_Off.Size = new System.Drawing.Size(50, 22);
+            this.butBackR_Off.TabIndex = 1;
+            this.butBackR_Off.Text = "Off";
+            this.butBackR_Off.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.butBackR_Off.UseVisualStyleBackColor = true;
+            this.butBackR_Off.Click += new System.EventHandler(this.butBackR_Off_Click);
+            // 
+            // butBackR_On
+            // 
+            this.butBackR_On.Location = new System.Drawing.Point(8, 19);
+            this.butBackR_On.Name = "butBackR_On";
+            this.butBackR_On.Size = new System.Drawing.Size(50, 22);
+            this.butBackR_On.TabIndex = 0;
+            this.butBackR_On.Text = "On";
+            this.butBackR_On.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.butBackR_On.UseVisualStyleBackColor = true;
+            this.butBackR_On.Click += new System.EventHandler(this.butBackR_On_Click);
+            // 
+            // butBackL_Off
+            // 
+            this.butBackL_Off.Location = new System.Drawing.Point(8, 71);
+            this.butBackL_Off.Name = "butBackL_Off";
+            this.butBackL_Off.Size = new System.Drawing.Size(50, 22);
+            this.butBackL_Off.TabIndex = 1;
+            this.butBackL_Off.Text = "Off";
+            this.butBackL_Off.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.butBackL_Off.UseVisualStyleBackColor = true;
+            this.butBackL_Off.Click += new System.EventHandler(this.butBackL_Off_Click);
+            // 
+            // butBackL_On
+            // 
+            this.butBackL_On.Location = new System.Drawing.Point(8, 19);
+            this.butBackL_On.Name = "butBackL_On";
+            this.butBackL_On.Size = new System.Drawing.Size(50, 22);
+            this.butBackL_On.TabIndex = 0;
+            this.butBackL_On.Text = "On";
+            this.butBackL_On.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.butBackL_On.UseVisualStyleBackColor = true;
+            this.butBackL_On.Click += new System.EventHandler(this.butBackL_On_Click);
+            // 
+            // butFrontR_Off
+            // 
+            this.butFrontR_Off.Location = new System.Drawing.Point(8, 71);
+            this.butFrontR_Off.Name = "butFrontR_Off";
+            this.butFrontR_Off.Size = new System.Drawing.Size(50, 22);
+            this.butFrontR_Off.TabIndex = 1;
+            this.butFrontR_Off.Text = "Off";
+            this.butFrontR_Off.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.butFrontR_Off.UseVisualStyleBackColor = true;
+            this.butFrontR_Off.Click += new System.EventHandler(this.butFrontR_Off_Click);
+            // 
+            // butFrontR_On
+            // 
+            this.butFrontR_On.Location = new System.Drawing.Point(8, 19);
+            this.butFrontR_On.Name = "butFrontR_On";
+            this.butFrontR_On.Size = new System.Drawing.Size(50, 22);
+            this.butFrontR_On.TabIndex = 0;
+            this.butFrontR_On.Text = "On";
+            this.butFrontR_On.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.butFrontR_On.UseVisualStyleBackColor = true;
+            this.butFrontR_On.Click += new System.EventHandler(this.butFrontR_On_Click);
+            // 
+            // butFrontL_Off
+            // 
+            this.butFrontL_Off.Location = new System.Drawing.Point(8, 71);
+            this.butFrontL_Off.Name = "butFrontL_Off";
+            this.butFrontL_Off.Size = new System.Drawing.Size(50, 22);
+            this.butFrontL_Off.TabIndex = 1;
+            this.butFrontL_Off.Text = "Off";
+            this.butFrontL_Off.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.butFrontL_Off.UseVisualStyleBackColor = true;
+            this.butFrontL_Off.Click += new System.EventHandler(this.butFrontL_Off_Click);
+            // 
+            // butFrontL_On
+            // 
+            this.butFrontL_On.Location = new System.Drawing.Point(8, 19);
+            this.butFrontL_On.Name = "butFrontL_On";
+            this.butFrontL_On.Size = new System.Drawing.Size(50, 22);
+            this.butFrontL_On.TabIndex = 0;
+            this.butFrontL_On.Text = "On";
+            this.butFrontL_On.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.butFrontL_On.UseVisualStyleBackColor = true;
+            this.butFrontL_On.Click += new System.EventHandler(this.butFrontL_On_Click);
+            // 
+            // payLoadSwLabel
+            // 
+            this.payLoadSwLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payLoadSwLabel.Location = new System.Drawing.Point(7, 434);
+            this.payLoadSwLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.payLoadSwLabel.Name = "payLoadSwLabel";
+            this.payLoadSwLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.payLoadSwLabel.Size = new System.Drawing.Size(385, 29);
+            this.payLoadSwLabel.TabIndex = 43;
+            this.payLoadSwLabel.Text = "------";
+            this.payLoadSwLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.payloadConnLabel);
+            this.groupBox1.Location = new System.Drawing.Point(225, 34);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(159, 56);
+            this.groupBox1.TabIndex = 44;
+            this.groupBox1.TabStop = false;
             // 
             // SoleonCtrl_UI
             // 
@@ -595,7 +585,7 @@
             this.Controls.Add(this.SoleonCtrl);
             this.Name = "SoleonCtrl_UI";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(408, 501);
+            this.Size = new System.Drawing.Size(409, 477);
             this.SoleonCtrl.ResumeLayout(false);
             this.SoleonCtrl.PerformLayout();
             this.Control.ResumeLayout(false);
@@ -607,6 +597,7 @@
             this.StatusBits.PerformLayout();
             this.StatusNumbers.ResumeLayout(false);
             this.StatusNumbers.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -617,19 +608,15 @@
         private System.Windows.Forms.GroupBox Control;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
-        private Bulb.LedBulb ledSprR;
-        private Bulb.LedBulb ledSprL;
         private System.Windows.Forms.GroupBox groupBox2;
         private MissionPlanner.Controls.MyButton butFrontL_On;
         private System.Windows.Forms.GroupBox StatusBits;
         private MissionPlanner.Controls.MyButton butFrontL_Off;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private Bulb.LedBulb ledNozzleErr;
         private Bulb.LedBulb ledPumpErr;
         private Bulb.LedBulb ledSprReady;
@@ -657,5 +644,8 @@
         private MissionPlanner.Controls.MyButton butBackL_On;
         private System.Windows.Forms.TextBox liter_ha;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label payloadConnLabel;
+        private System.Windows.Forms.Label payLoadSwLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

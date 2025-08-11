@@ -55,7 +55,7 @@ namespace MissionPlanner.Controls
 
         public so_status_data_t so_status_data = new so_status_data_t();
         private UInt32 loopConnectCntr;
-        private Int32 connTimeOut;
+        private bool soMsgDetected;
 
         System.Threading.Thread _thread_soleon;
         static bool threadrun = false;
@@ -76,24 +76,6 @@ namespace MissionPlanner.Controls
         //--- we dont use this currently
         public bool Loop()
         {
-            if ((!so_status_data.connected) && (connTimeOut < CONN_TIMEOUT_SECS))  connTimeOut++;
-            if (so_status_data.connected)
-            {
-                so_status_data.connected = false;
-                connTimeOut = 0;
-            }
-
-            if (connTimeOut >= CONN_TIMEOUT_SECS){
-                so_status_data.connected = false;
-                loopConnectCntr = 0;
-                connTimeOut = 0;
-             //   clearAllStatusViews();
-                return true;
-            }
-
-            //---- we are connected ---//
-            loopConnectCntr++;
-            //doToggleTheLeds(loopConnectCntr);
             return true;
         }
 
@@ -142,10 +124,8 @@ namespace MissionPlanner.Controls
         {
             if (_host == null) return; 
             var mav = _host.comPort.MAVlist.FirstOrDefault(a => a.compid == (byte) target_mavlink_ID);
+ 
             // --- Send 'Int command' to payload; Note: doCommand sends 'long command' ---
-
-            
-            //if (mav != null) mav.parent.doCommandInt(mav.sysid, mav.compid, (MAVLink.MAV_CMD) 31090, 2, spray_cmd, 0, 0, 0, 0, 0, false);
             if (mav != null) mav.parent.doCommandInt (mav.sysid, mav.compid, MAVLink.MAV_CMD.DO_SEND_SCRIPT_MESSAGE, 2, spray_cmd, 0, 0, 0, 0, 0, false);
         }
  
@@ -158,8 +138,47 @@ namespace MissionPlanner.Controls
                 loopConnectCntr++;
                 doToggleTheLeds(loopConnectCntr);
 
+                //--- Monitor connection status ---//
+                switch (loopConnectCntr % 4)
+                {
+                    case 0:
+                        soMsgDetected = false;
+                        break;
+
+                    case 3:
+                        if (soMsgDetected && (!so_status_data.connected))
+                        {
+                            SetText(payloadConnLabel, "connected");
+                        }
+                        if (!soMsgDetected && so_status_data.connected)
+                        {
+                            SetText(payloadConnLabel, "disconnected");
+                        }
+                        so_status_data.connected = soMsgDetected;
+                        break;
+
+                }
+
 
                 System.Threading.Thread.Sleep((int)500);
+                /*            if ((!so_status_data.connected) && (connTimeOut < CONN_TIMEOUT_SECS))  connTimeOut++;
+                            if (so_status_data.connected)
+                            {
+                                so_status_data.connected = false;
+                                connTimeOut = 0;
+                            }
+
+                            if (connTimeOut >= CONN_TIMEOUT_SECS){
+                                so_status_data.connected = false;
+                                loopConnectCntr = 0;
+                                connTimeOut = 0;
+                             //   clearAllStatusViews();
+                                return true;
+                            }
+
+                            //---- we are connected ---//
+                            loopConnectCntr++;
+                            //doToggleTheLeds(loopConnectCntr);*/
 
             }
         }
@@ -190,7 +209,7 @@ namespace MissionPlanner.Controls
             rxSoStatus.mp_line_dist =   pckt.distlines;
             rxSoStatus.mp_planned_spd = pckt.speed;
 
-            rxSoStatus.connected = true;
+            soMsgDetected = true;
 
             SoStatusRxCnt++;
 
@@ -209,15 +228,26 @@ namespace MissionPlanner.Controls
                 return;
             }
 
+            if (so_status_data.connected == true) 
+            { //--- we are connected --> update only modified values
+                if (so_status.fill_level != so_status_data.fill_level) SetText(fill, so_status.fill_level.ToString() + " l");
+                if (so_status.mp_sprayrate != so_status_data.mp_sprayrate) SetText(flow, so_status.mp_sprayrate.ToString() + " l/h");
+                if (so_status.mp_line_dist != so_status_data.mp_line_dist) SetText(line_dist, so_status.mp_line_dist.ToString() + " m");
+                if (so_status.mp_planned_spd != so_status_data.mp_planned_spd) SetText(speed, so_status.mp_planned_spd.ToString() + " m/h");
+                if (so_status.mp_liter_ha != so_status_data.mp_liter_ha) SetText(liter_ha, so_status.mp_liter_ha.ToString() + " l/ha");
 
-            if (so_status.fill_level != so_status_data.fill_level)      SetText(fill, so_status.fill_level.ToString() + " l");
-            if (so_status.mp_sprayrate != so_status_data.mp_sprayrate)  SetText(flow, so_status.mp_sprayrate.ToString() + " l/h");
-            if (so_status.mp_line_dist != so_status_data.mp_line_dist)  SetText(line_dist, so_status.mp_line_dist.ToString() + " m");
-            if (so_status.mp_planned_spd != so_status_data.mp_planned_spd) SetText(speed, so_status.mp_planned_spd.ToString() + " m/h");
-            if (so_status.mp_liter_ha != so_status_data.mp_liter_ha)    SetText(speed, so_status.mp_liter_ha.ToString() + " l/ha");
+                if (so_status.mp_status != so_status_data.mp_status) updateTheLedStatus((Int32)so_status.mp_status);
+            }
+            else
+            { //--- we are connecting for the first time --> force update of all values
+                SetText(fill, so_status.fill_level.ToString() + " l");
+                SetText(flow, so_status.mp_sprayrate.ToString() + " l/h");
+                SetText(line_dist, so_status.mp_line_dist.ToString() + " m");
+                SetText(speed, so_status.mp_planned_spd.ToString() + " m/h");
+                SetText(liter_ha, so_status.mp_liter_ha.ToString() + " l/ha");
 
-
-            if (so_status.mp_status != so_status_data.mp_status) updateTheLedStatus((Int32)so_status.mp_status);
+                updateTheLedStatus((Int32)so_status.mp_status);
+            }
 
             so_status_data = so_status;
         }
@@ -226,8 +256,6 @@ namespace MissionPlanner.Controls
         {
             BitVector32 statusBits = new BitVector32(theStatus);
 
-            ledSprR.Color = (statusBits[1 << 0] ? myGreen : Color.White);
-            ledSprL.Color = (statusBits[1 << 1] ? myGreen : Color.White);
             ledSprReady.Color = (statusBits[1 << 2] ? myGreen : Color.White);
             ledPumpErr.Color = (statusBits[1 << 3] ? myRed : Color.White);
             ledNozzleErr.Color = (statusBits[1 << 4] ? myRed : Color.White);
@@ -263,8 +291,6 @@ namespace MissionPlanner.Controls
             line_dist.Text = "";
             speed.Text = "";
 
-            ledSprR.Color = Color.White;
-            ledSprL.Color = Color.White;
             ledNozzleErr.Color = Color.White;
             ledPumpErr.Color = Color.White;
             ledSprReady.Color = Color.White;
@@ -283,11 +309,9 @@ namespace MissionPlanner.Controls
 
             var pckt = (MAVLink.mavlink_statustext_t)msg.data;
             string txt = System.Text.Encoding.UTF8.GetString(pckt.text);
-            if (txt.Contains("Soleon Payload"))
+            if (txt.Contains("Soleon AirController"))
             {
-                String[] ver = txt.Split(':');
-                var output = new string(ver[1].Where(char.IsNumber).ToArray());
-                Console.WriteLine("Firmware rcvd! FW (" + output + ")");       //-- write this to the tab somewere; for future backward compatibiltity
+                SetText(payLoadSwLabel, txt);  //-- show the Payload SW code and version
             }
             return true;
         }

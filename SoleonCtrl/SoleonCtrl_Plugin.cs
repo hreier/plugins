@@ -36,7 +36,7 @@ namespace SoleonCtrl_Plugin
 
 
         public override string Name { get; } = "SoleonCtrl Plugin";
-        public override string Version { get; } = "0.0.0";
+        public override string Version { get; } = "1.0.0";
         public override string Author { get; } = "soleon.it";
         
         public override bool Init() 
