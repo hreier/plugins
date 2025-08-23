@@ -39,7 +39,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabCounters = new System.Windows.Forms.TabPage();
-            this.myButton1 = new MissionPlanner.Controls.MyButton();
+            this.countersRes = new MissionPlanner.Controls.MyButton();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -58,7 +58,7 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabController = new System.Windows.Forms.TabPage();
-            this.myButton2 = new MissionPlanner.Controls.MyButton();
+            this.controllerRes = new MissionPlanner.Controls.MyButton();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -72,17 +72,41 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.tabErrors = new System.Windows.Forms.TabPage();
-            this.myButton3 = new MissionPlanner.Controls.MyButton();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.errorsRes = new MissionPlanner.Controls.MyButton();
+            this.tBrightWindups = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.tBleftWindups = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.tBmavLinkErrors = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.tBerrorFlags = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.tabMavLink = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tBmsg_received_1 = new System.Windows.Forms.TextBox();
+            this.tBpacket_rx_drop_1 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tBparse_errors_1 = new System.Windows.Forms.TextBox();
+            this.tBpacket_rx_success_1 = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.tBbuffer_overrun_1 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tBmsg_received_0 = new System.Windows.Forms.TextBox();
+            this.tBpacket_rx_drop_0 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tBparse_errors_0 = new System.Windows.Forms.TextBox();
+            this.tBpacket_rx_success_0 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tBbuffer_overrun_0 = new System.Windows.Forms.TextBox();
+            this.mavlinkRes = new MissionPlanner.Controls.MyButton();
             this.groupBoxSw = new System.Windows.Forms.GroupBox();
-            this.flow = new System.Windows.Forms.TextBox();
+            this.tBinterval = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.butBackL_Off = new MissionPlanner.Controls.MyButton();
             this.butBackL_On = new MissionPlanner.Controls.MyButton();
@@ -95,6 +119,9 @@
             this.tabMeasures.SuspendLayout();
             this.tabController.SuspendLayout();
             this.tabErrors.SuspendLayout();
+            this.tabMavLink.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBoxSw.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -106,10 +133,11 @@
             serviceData.Controls.Add(this.tabMeasures);
             serviceData.Controls.Add(this.tabController);
             serviceData.Controls.Add(this.tabErrors);
+            serviceData.Controls.Add(this.tabMavLink);
             serviceData.Location = new System.Drawing.Point(6, 130);
             serviceData.Name = "serviceData";
             serviceData.SelectedIndex = 0;
-            serviceData.Size = new System.Drawing.Size(433, 369);
+            serviceData.Size = new System.Drawing.Size(433, 470);
             serviceData.TabIndex = 50;
             // 
             // tabDebug
@@ -125,7 +153,7 @@
             this.tabDebug.Location = new System.Drawing.Point(4, 25);
             this.tabDebug.Name = "tabDebug";
             this.tabDebug.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDebug.Size = new System.Drawing.Size(425, 340);
+            this.tabDebug.Size = new System.Drawing.Size(425, 441);
             this.tabDebug.TabIndex = 0;
             this.tabDebug.Text = "Debug";
             this.tabDebug.UseVisualStyleBackColor = true;
@@ -233,7 +261,7 @@
             // 
             // tabCounters
             // 
-            this.tabCounters.Controls.Add(this.myButton1);
+            this.tabCounters.Controls.Add(this.countersRes);
             this.tabCounters.Controls.Add(this.textBox7);
             this.tabCounters.Controls.Add(this.label8);
             this.tabCounters.Controls.Add(this.textBox6);
@@ -243,21 +271,21 @@
             this.tabCounters.Location = new System.Drawing.Point(4, 25);
             this.tabCounters.Name = "tabCounters";
             this.tabCounters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCounters.Size = new System.Drawing.Size(425, 340);
+            this.tabCounters.Size = new System.Drawing.Size(425, 441);
             this.tabCounters.TabIndex = 1;
             this.tabCounters.Text = "Counters";
             this.tabCounters.UseVisualStyleBackColor = true;
             this.tabCounters.Enter += new System.EventHandler(this.tabCounters_Enter);
             // 
-            // myButton1
+            // countersRes
             // 
-            this.myButton1.Location = new System.Drawing.Point(170, 312);
-            this.myButton1.Name = "myButton1";
-            this.myButton1.Size = new System.Drawing.Size(83, 22);
-            this.myButton1.TabIndex = 49;
-            this.myButton1.Text = "Reset";
-            this.myButton1.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.myButton1.UseVisualStyleBackColor = true;
+            this.countersRes.Location = new System.Drawing.Point(170, 312);
+            this.countersRes.Name = "countersRes";
+            this.countersRes.Size = new System.Drawing.Size(83, 22);
+            this.countersRes.TabIndex = 49;
+            this.countersRes.Text = "Reset";
+            this.countersRes.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.countersRes.UseVisualStyleBackColor = true;
             // 
             // textBox7
             // 
@@ -349,7 +377,7 @@
             this.tabMeasures.Location = new System.Drawing.Point(4, 25);
             this.tabMeasures.Name = "tabMeasures";
             this.tabMeasures.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMeasures.Size = new System.Drawing.Size(425, 340);
+            this.tabMeasures.Size = new System.Drawing.Size(425, 441);
             this.tabMeasures.TabIndex = 2;
             this.tabMeasures.Text = "Measures";
             this.tabMeasures.UseVisualStyleBackColor = true;
@@ -487,7 +515,7 @@
             // 
             // tabController
             // 
-            this.tabController.Controls.Add(this.myButton2);
+            this.tabController.Controls.Add(this.controllerRes);
             this.tabController.Controls.Add(this.textBox18);
             this.tabController.Controls.Add(this.label19);
             this.tabController.Controls.Add(this.textBox13);
@@ -503,21 +531,21 @@
             this.tabController.Location = new System.Drawing.Point(4, 25);
             this.tabController.Name = "tabController";
             this.tabController.Padding = new System.Windows.Forms.Padding(3);
-            this.tabController.Size = new System.Drawing.Size(425, 340);
+            this.tabController.Size = new System.Drawing.Size(425, 441);
             this.tabController.TabIndex = 3;
             this.tabController.Text = "Controller";
             this.tabController.UseVisualStyleBackColor = true;
             this.tabController.Enter += new System.EventHandler(this.tabController_Enter);
             // 
-            // myButton2
+            // controllerRes
             // 
-            this.myButton2.Location = new System.Drawing.Point(170, 312);
-            this.myButton2.Name = "myButton2";
-            this.myButton2.Size = new System.Drawing.Size(83, 22);
-            this.myButton2.TabIndex = 69;
-            this.myButton2.Text = "Reset";
-            this.myButton2.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.myButton2.UseVisualStyleBackColor = true;
+            this.controllerRes.Location = new System.Drawing.Point(170, 312);
+            this.controllerRes.Name = "controllerRes";
+            this.controllerRes.Size = new System.Drawing.Size(83, 22);
+            this.controllerRes.TabIndex = 69;
+            this.controllerRes.Text = "Reset";
+            this.controllerRes.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.controllerRes.UseVisualStyleBackColor = true;
             // 
             // textBox18
             // 
@@ -677,44 +705,44 @@
             // 
             // tabErrors
             // 
-            this.tabErrors.Controls.Add(this.myButton3);
-            this.tabErrors.Controls.Add(this.textBox19);
+            this.tabErrors.Controls.Add(this.errorsRes);
+            this.tabErrors.Controls.Add(this.tBrightWindups);
             this.tabErrors.Controls.Add(this.label20);
-            this.tabErrors.Controls.Add(this.textBox20);
+            this.tabErrors.Controls.Add(this.tBleftWindups);
             this.tabErrors.Controls.Add(this.label21);
-            this.tabErrors.Controls.Add(this.textBox21);
+            this.tabErrors.Controls.Add(this.tBmavLinkErrors);
             this.tabErrors.Controls.Add(this.label22);
-            this.tabErrors.Controls.Add(this.textBox22);
+            this.tabErrors.Controls.Add(this.tBerrorFlags);
             this.tabErrors.Controls.Add(this.label23);
             this.tabErrors.Location = new System.Drawing.Point(4, 25);
             this.tabErrors.Name = "tabErrors";
             this.tabErrors.Padding = new System.Windows.Forms.Padding(3);
-            this.tabErrors.Size = new System.Drawing.Size(425, 340);
+            this.tabErrors.Size = new System.Drawing.Size(425, 441);
             this.tabErrors.TabIndex = 4;
             this.tabErrors.Text = "Errors";
             this.tabErrors.UseVisualStyleBackColor = true;
             this.tabErrors.Enter += new System.EventHandler(this.tabErrors_Enter);
             // 
-            // myButton3
+            // errorsRes
             // 
-            this.myButton3.Location = new System.Drawing.Point(170, 312);
-            this.myButton3.Name = "myButton3";
-            this.myButton3.Size = new System.Drawing.Size(83, 22);
-            this.myButton3.TabIndex = 75;
-            this.myButton3.Text = "Reset";
-            this.myButton3.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.myButton3.UseVisualStyleBackColor = true;
+            this.errorsRes.Location = new System.Drawing.Point(170, 312);
+            this.errorsRes.Name = "errorsRes";
+            this.errorsRes.Size = new System.Drawing.Size(83, 22);
+            this.errorsRes.TabIndex = 75;
+            this.errorsRes.Text = "Reset";
+            this.errorsRes.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.errorsRes.UseVisualStyleBackColor = true;
             // 
-            // textBox19
+            // tBrightWindups
             // 
-            this.textBox19.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox19.Location = new System.Drawing.Point(211, 113);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox19.Size = new System.Drawing.Size(139, 23);
-            this.textBox19.TabIndex = 74;
+            this.tBrightWindups.BackColor = System.Drawing.SystemColors.Control;
+            this.tBrightWindups.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBrightWindups.Location = new System.Drawing.Point(211, 113);
+            this.tBrightWindups.Margin = new System.Windows.Forms.Padding(4);
+            this.tBrightWindups.Name = "tBrightWindups";
+            this.tBrightWindups.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBrightWindups.Size = new System.Drawing.Size(139, 23);
+            this.tBrightWindups.TabIndex = 74;
             // 
             // label20
             // 
@@ -731,16 +759,16 @@
             this.label20.Text = "cntPressRightWindups: ";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox20
+            // tBleftWindups
             // 
-            this.textBox20.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox20.Location = new System.Drawing.Point(211, 72);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox20.Size = new System.Drawing.Size(139, 23);
-            this.textBox20.TabIndex = 72;
+            this.tBleftWindups.BackColor = System.Drawing.SystemColors.Control;
+            this.tBleftWindups.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBleftWindups.Location = new System.Drawing.Point(211, 72);
+            this.tBleftWindups.Margin = new System.Windows.Forms.Padding(4);
+            this.tBleftWindups.Name = "tBleftWindups";
+            this.tBleftWindups.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBleftWindups.Size = new System.Drawing.Size(139, 23);
+            this.tBleftWindups.TabIndex = 72;
             // 
             // label21
             // 
@@ -757,16 +785,16 @@
             this.label21.Text = "cntPressLeftWindups: ";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox21
+            // tBmavLinkErrors
             // 
-            this.textBox21.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox21.Location = new System.Drawing.Point(211, 154);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox21.Size = new System.Drawing.Size(139, 23);
-            this.textBox21.TabIndex = 70;
+            this.tBmavLinkErrors.BackColor = System.Drawing.SystemColors.Control;
+            this.tBmavLinkErrors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBmavLinkErrors.Location = new System.Drawing.Point(211, 154);
+            this.tBmavLinkErrors.Margin = new System.Windows.Forms.Padding(4);
+            this.tBmavLinkErrors.Name = "tBmavLinkErrors";
+            this.tBmavLinkErrors.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBmavLinkErrors.Size = new System.Drawing.Size(139, 23);
+            this.tBmavLinkErrors.TabIndex = 70;
             // 
             // label22
             // 
@@ -783,16 +811,16 @@
             this.label22.Text = "cntMavLinkErrors: ";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox22
+            // tBerrorFlags
             // 
-            this.textBox22.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox22.Location = new System.Drawing.Point(211, 32);
-            this.textBox22.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox22.Size = new System.Drawing.Size(139, 23);
-            this.textBox22.TabIndex = 68;
+            this.tBerrorFlags.BackColor = System.Drawing.SystemColors.Control;
+            this.tBerrorFlags.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBerrorFlags.Location = new System.Drawing.Point(211, 32);
+            this.tBerrorFlags.Margin = new System.Windows.Forms.Padding(4);
+            this.tBerrorFlags.Name = "tBerrorFlags";
+            this.tBerrorFlags.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBerrorFlags.Size = new System.Drawing.Size(139, 23);
+            this.tBerrorFlags.TabIndex = 68;
             // 
             // label23
             // 
@@ -809,10 +837,331 @@
             this.label23.Text = "errorFlags: ";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // tabMavLink
+            // 
+            this.tabMavLink.Controls.Add(this.groupBox3);
+            this.tabMavLink.Controls.Add(this.groupBox2);
+            this.tabMavLink.Controls.Add(this.mavlinkRes);
+            this.tabMavLink.Location = new System.Drawing.Point(4, 25);
+            this.tabMavLink.Name = "tabMavLink";
+            this.tabMavLink.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMavLink.Size = new System.Drawing.Size(425, 441);
+            this.tabMavLink.TabIndex = 5;
+            this.tabMavLink.Text = "Mavlink";
+            this.tabMavLink.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tBmsg_received_1);
+            this.groupBox3.Controls.Add(this.tBpacket_rx_drop_1);
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Controls.Add(this.label30);
+            this.groupBox3.Controls.Add(this.label31);
+            this.groupBox3.Controls.Add(this.tBparse_errors_1);
+            this.groupBox3.Controls.Add(this.tBpacket_rx_success_1);
+            this.groupBox3.Controls.Add(this.label32);
+            this.groupBox3.Controls.Add(this.label33);
+            this.groupBox3.Controls.Add(this.tBbuffer_overrun_1);
+            this.groupBox3.Location = new System.Drawing.Point(22, 204);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(378, 183);
+            this.groupBox3.TabIndex = 88;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "chan1";
+            // 
+            // tBmsg_received_1
+            // 
+            this.tBmsg_received_1.BackColor = System.Drawing.SystemColors.Control;
+            this.tBmsg_received_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBmsg_received_1.Location = new System.Drawing.Point(204, 24);
+            this.tBmsg_received_1.Margin = new System.Windows.Forms.Padding(4);
+            this.tBmsg_received_1.Name = "tBmsg_received_1";
+            this.tBmsg_received_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBmsg_received_1.Size = new System.Drawing.Size(139, 23);
+            this.tBmsg_received_1.TabIndex = 78;
+            // 
+            // tBpacket_rx_drop_1
+            // 
+            this.tBpacket_rx_drop_1.BackColor = System.Drawing.SystemColors.Control;
+            this.tBpacket_rx_drop_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBpacket_rx_drop_1.Location = new System.Drawing.Point(204, 148);
+            this.tBpacket_rx_drop_1.Margin = new System.Windows.Forms.Padding(4);
+            this.tBpacket_rx_drop_1.Name = "tBpacket_rx_drop_1";
+            this.tBpacket_rx_drop_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBpacket_rx_drop_1.Size = new System.Drawing.Size(139, 23);
+            this.tBpacket_rx_drop_1.TabIndex = 86;
+            // 
+            // label29
+            // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label29.Location = new System.Drawing.Point(92, 27);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Name = "label29";
+            this.label29.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label29.Size = new System.Drawing.Size(104, 17);
+            this.label29.TabIndex = 77;
+            this.label29.Text = "msg_received: ";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label30.Location = new System.Drawing.Point(39, 151);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Name = "label30";
+            this.label30.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label30.Size = new System.Drawing.Size(157, 17);
+            this.label30.TabIndex = 85;
+            this.label30.Text = "packet_rx_drop_count: ";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label31
+            // 
+            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label31.Location = new System.Drawing.Point(17, 120);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Name = "label31";
+            this.label31.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label31.Size = new System.Drawing.Size(179, 17);
+            this.label31.TabIndex = 79;
+            this.label31.Text = "packet_rx_success_count: ";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tBparse_errors_1
+            // 
+            this.tBparse_errors_1.BackColor = System.Drawing.SystemColors.Control;
+            this.tBparse_errors_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBparse_errors_1.Location = new System.Drawing.Point(204, 86);
+            this.tBparse_errors_1.Margin = new System.Windows.Forms.Padding(4);
+            this.tBparse_errors_1.Name = "tBparse_errors_1";
+            this.tBparse_errors_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBparse_errors_1.Size = new System.Drawing.Size(139, 23);
+            this.tBparse_errors_1.TabIndex = 84;
+            // 
+            // tBpacket_rx_success_1
+            // 
+            this.tBpacket_rx_success_1.BackColor = System.Drawing.SystemColors.Control;
+            this.tBpacket_rx_success_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBpacket_rx_success_1.Location = new System.Drawing.Point(204, 117);
+            this.tBpacket_rx_success_1.Margin = new System.Windows.Forms.Padding(4);
+            this.tBpacket_rx_success_1.Name = "tBpacket_rx_success_1";
+            this.tBpacket_rx_success_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBpacket_rx_success_1.Size = new System.Drawing.Size(139, 23);
+            this.tBpacket_rx_success_1.TabIndex = 80;
+            // 
+            // label32
+            // 
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label32.Location = new System.Drawing.Point(98, 89);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label32.Name = "label32";
+            this.label32.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label32.Size = new System.Drawing.Size(98, 17);
+            this.label32.TabIndex = 83;
+            this.label32.Text = "parse_errors: ";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label33
+            // 
+            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label33.Location = new System.Drawing.Point(86, 58);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Name = "label33";
+            this.label33.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label33.Size = new System.Drawing.Size(110, 17);
+            this.label33.TabIndex = 81;
+            this.label33.Text = "buffer_overrun: ";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tBbuffer_overrun_1
+            // 
+            this.tBbuffer_overrun_1.BackColor = System.Drawing.SystemColors.Control;
+            this.tBbuffer_overrun_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBbuffer_overrun_1.Location = new System.Drawing.Point(204, 55);
+            this.tBbuffer_overrun_1.Margin = new System.Windows.Forms.Padding(4);
+            this.tBbuffer_overrun_1.Name = "tBbuffer_overrun_1";
+            this.tBbuffer_overrun_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBbuffer_overrun_1.Size = new System.Drawing.Size(139, 23);
+            this.tBbuffer_overrun_1.TabIndex = 82;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tBmsg_received_0);
+            this.groupBox2.Controls.Add(this.tBpacket_rx_drop_0);
+            this.groupBox2.Controls.Add(this.label27);
+            this.groupBox2.Controls.Add(this.label28);
+            this.groupBox2.Controls.Add(this.label26);
+            this.groupBox2.Controls.Add(this.tBparse_errors_0);
+            this.groupBox2.Controls.Add(this.tBpacket_rx_success_0);
+            this.groupBox2.Controls.Add(this.label24);
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.tBbuffer_overrun_0);
+            this.groupBox2.Location = new System.Drawing.Point(22, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(378, 183);
+            this.groupBox2.TabIndex = 87;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "chan0";
+            // 
+            // tBmsg_received_0
+            // 
+            this.tBmsg_received_0.BackColor = System.Drawing.SystemColors.Control;
+            this.tBmsg_received_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBmsg_received_0.Location = new System.Drawing.Point(204, 24);
+            this.tBmsg_received_0.Margin = new System.Windows.Forms.Padding(4);
+            this.tBmsg_received_0.Name = "tBmsg_received_0";
+            this.tBmsg_received_0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBmsg_received_0.Size = new System.Drawing.Size(139, 23);
+            this.tBmsg_received_0.TabIndex = 78;
+            // 
+            // tBpacket_rx_drop_0
+            // 
+            this.tBpacket_rx_drop_0.BackColor = System.Drawing.SystemColors.Control;
+            this.tBpacket_rx_drop_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBpacket_rx_drop_0.Location = new System.Drawing.Point(204, 148);
+            this.tBpacket_rx_drop_0.Margin = new System.Windows.Forms.Padding(4);
+            this.tBpacket_rx_drop_0.Name = "tBpacket_rx_drop_0";
+            this.tBpacket_rx_drop_0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBpacket_rx_drop_0.Size = new System.Drawing.Size(139, 23);
+            this.tBpacket_rx_drop_0.TabIndex = 86;
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label27.Location = new System.Drawing.Point(92, 27);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label27.Size = new System.Drawing.Size(104, 17);
+            this.label27.TabIndex = 77;
+            this.label27.Text = "msg_received: ";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label28.Location = new System.Drawing.Point(39, 151);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label28.Size = new System.Drawing.Size(157, 17);
+            this.label28.TabIndex = 85;
+            this.label28.Text = "packet_rx_drop_count: ";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label26
+            // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label26.Location = new System.Drawing.Point(17, 120);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label26.Size = new System.Drawing.Size(179, 17);
+            this.label26.TabIndex = 79;
+            this.label26.Text = "packet_rx_success_count: ";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tBparse_errors_0
+            // 
+            this.tBparse_errors_0.BackColor = System.Drawing.SystemColors.Control;
+            this.tBparse_errors_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBparse_errors_0.Location = new System.Drawing.Point(204, 86);
+            this.tBparse_errors_0.Margin = new System.Windows.Forms.Padding(4);
+            this.tBparse_errors_0.Name = "tBparse_errors_0";
+            this.tBparse_errors_0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBparse_errors_0.Size = new System.Drawing.Size(139, 23);
+            this.tBparse_errors_0.TabIndex = 84;
+            // 
+            // tBpacket_rx_success_0
+            // 
+            this.tBpacket_rx_success_0.BackColor = System.Drawing.SystemColors.Control;
+            this.tBpacket_rx_success_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBpacket_rx_success_0.Location = new System.Drawing.Point(204, 117);
+            this.tBpacket_rx_success_0.Margin = new System.Windows.Forms.Padding(4);
+            this.tBpacket_rx_success_0.Name = "tBpacket_rx_success_0";
+            this.tBpacket_rx_success_0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBpacket_rx_success_0.Size = new System.Drawing.Size(139, 23);
+            this.tBpacket_rx_success_0.TabIndex = 80;
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label24.Location = new System.Drawing.Point(98, 89);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label24.Size = new System.Drawing.Size(98, 17);
+            this.label24.TabIndex = 83;
+            this.label24.Text = "parse_errors: ";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label25
+            // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label25.Location = new System.Drawing.Point(86, 58);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label25.Size = new System.Drawing.Size(110, 17);
+            this.label25.TabIndex = 81;
+            this.label25.Text = "buffer_overrun: ";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tBbuffer_overrun_0
+            // 
+            this.tBbuffer_overrun_0.BackColor = System.Drawing.SystemColors.Control;
+            this.tBbuffer_overrun_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBbuffer_overrun_0.Location = new System.Drawing.Point(204, 55);
+            this.tBbuffer_overrun_0.Margin = new System.Windows.Forms.Padding(4);
+            this.tBbuffer_overrun_0.Name = "tBbuffer_overrun_0";
+            this.tBbuffer_overrun_0.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBbuffer_overrun_0.Size = new System.Drawing.Size(139, 23);
+            this.tBbuffer_overrun_0.TabIndex = 82;
+            // 
+            // mavlinkRes
+            // 
+            this.mavlinkRes.Location = new System.Drawing.Point(170, 402);
+            this.mavlinkRes.Name = "mavlinkRes";
+            this.mavlinkRes.Size = new System.Drawing.Size(83, 22);
+            this.mavlinkRes.TabIndex = 76;
+            this.mavlinkRes.Text = "Reset";
+            this.mavlinkRes.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.mavlinkRes.UseVisualStyleBackColor = true;
+            // 
             // groupBoxSw
             // 
             this.groupBoxSw.Controls.Add(serviceData);
-            this.groupBoxSw.Controls.Add(this.flow);
+            this.groupBoxSw.Controls.Add(this.tBinterval);
             this.groupBoxSw.Controls.Add(this.label1);
             this.groupBoxSw.Controls.Add(this.butBackL_Off);
             this.groupBoxSw.Controls.Add(this.butBackL_On);
@@ -821,22 +1170,23 @@
             this.groupBoxSw.Location = new System.Drawing.Point(3, 3);
             this.groupBoxSw.Name = "groupBoxSw";
             this.groupBoxSw.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBoxSw.Size = new System.Drawing.Size(443, 506);
+            this.groupBoxSw.Size = new System.Drawing.Size(443, 606);
             this.groupBoxSw.TabIndex = 0;
             this.groupBoxSw.TabStop = false;
             this.groupBoxSw.Text = "SoleonService --";
             // 
-            // flow
+            // tBinterval
             // 
-            this.flow.BackColor = System.Drawing.SystemColors.Control;
-            this.flow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flow.Location = new System.Drawing.Point(180, 38);
-            this.flow.Margin = new System.Windows.Forms.Padding(4);
-            this.flow.Name = "flow";
-            this.flow.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flow.Size = new System.Drawing.Size(139, 23);
-            this.flow.TabIndex = 49;
-            this.flow.Text = "500";
+            this.tBinterval.BackColor = System.Drawing.SystemColors.Control;
+            this.tBinterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBinterval.Location = new System.Drawing.Point(180, 38);
+            this.tBinterval.Margin = new System.Windows.Forms.Padding(4);
+            this.tBinterval.Name = "tBinterval";
+            this.tBinterval.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tBinterval.Size = new System.Drawing.Size(139, 23);
+            this.tBinterval.TabIndex = 49;
+            this.tBinterval.Text = "500";
+            this.tBinterval.Leave += new System.EventHandler(this.tBinterval_Leave);
             // 
             // label1
             // 
@@ -900,7 +1250,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBoxSw);
             this.Name = "SoleonService_UI";
-            this.Size = new System.Drawing.Size(452, 514);
+            this.Size = new System.Drawing.Size(455, 612);
             serviceData.ResumeLayout(false);
             this.tabDebug.ResumeLayout(false);
             this.tabDebug.PerformLayout();
@@ -912,6 +1262,11 @@
             this.tabController.PerformLayout();
             this.tabErrors.ResumeLayout(false);
             this.tabErrors.PerformLayout();
+            this.tabMavLink.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBoxSw.ResumeLayout(false);
             this.groupBoxSw.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -926,7 +1281,7 @@
         private System.Windows.Forms.Label payloadConnLabel;
         private MissionPlanner.Controls.MyButton butBackL_Off;
         private MissionPlanner.Controls.MyButton butBackL_On;
-        private System.Windows.Forms.TextBox flow;
+        private System.Windows.Forms.TextBox tBinterval;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabDebug;
         private System.Windows.Forms.TabPage tabCounters;
@@ -969,16 +1324,40 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox tBrightWindups;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox tBleftWindups;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox tBmavLinkErrors;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox tBerrorFlags;
         private System.Windows.Forms.Label label23;
-        private MissionPlanner.Controls.MyButton myButton1;
-        private MissionPlanner.Controls.MyButton myButton2;
-        private MissionPlanner.Controls.MyButton myButton3;
+        private MissionPlanner.Controls.MyButton countersRes;
+        private MissionPlanner.Controls.MyButton controllerRes;
+        private MissionPlanner.Controls.MyButton errorsRes;
+        private System.Windows.Forms.TabPage tabMavLink;
+        private MyButton mavlinkRes;
+        private System.Windows.Forms.TextBox tBparse_errors_0;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox tBbuffer_overrun_0;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox tBpacket_rx_success_0;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox tBmsg_received_0;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox tBpacket_rx_drop_0;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox tBmsg_received_1;
+        private System.Windows.Forms.TextBox tBpacket_rx_drop_1;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox tBparse_errors_1;
+        private System.Windows.Forms.TextBox tBpacket_rx_success_1;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox tBbuffer_overrun_1;
     }
 }
