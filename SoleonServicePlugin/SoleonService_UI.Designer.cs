@@ -305,13 +305,13 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label8.Location = new System.Drawing.Point(95, 107);
+            this.label8.Location = new System.Drawing.Point(42, 107);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label8.Size = new System.Drawing.Size(75, 17);
+            this.label8.Size = new System.Drawing.Size(130, 17);
             this.label8.TabIndex = 47;
-            this.label8.Text = "cntrRxMp: ";
+            this.label8.Text = "cntrRxMissionplan: ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tBcntrTxStatus
